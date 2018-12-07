@@ -104,6 +104,20 @@ module.exports = {
     beep: function (count) {
         var defaultedCount = count || 1;
         exec(null, null, 'Notification', 'beep', [ defaultedCount ]);
+    },
+
+    /**
+     * Close previously opened dialog.
+     */
+    dismissLast: function () {
+        exec(null, null, 'Notification', 'dismissLast', []);
+    },
+
+    /**
+     * Close all opened dialogs.
+     */
+    dismissAll: function () {
+        exec(null, null, 'Notification', 'dismissAll', []);
     }
 };
 
