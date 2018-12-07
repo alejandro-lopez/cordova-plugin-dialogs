@@ -47,6 +47,8 @@ Although the object is attached to the global scoped `navigator`, it is not avai
 - `navigator.notification.confirm`
 - `navigator.notification.prompt`
 - `navigator.notification.beep`
+- `navigator.notification.dismissLast`
+- `navigator.notification.dismissAll`
 
 ## navigator.notification.alert
 
@@ -221,3 +223,25 @@ The device plays a beep sound.
 ### Android Quirks
 
 - Android plays the default __Notification ringtone__ specified under the __Settings/Sound & Display__ panel.
+
+## navigator.notification.dismissLast
+
+Dismisses last opened dialog.
+
+    navigator.notification.dismissLast();
+
+### Supported Platforms
+
+- Android
+- iOS
+
+## navigator.notification.dismissAll
+
+Dismisses all opened dialogs.
+
+    navigator.notification.dismissAll();
+
+### Supported Platforms
+
+- Android
+- iOS
