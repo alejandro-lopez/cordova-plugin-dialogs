@@ -537,7 +537,9 @@ public class Notification extends CordovaPlugin {
         alertBoxes.add(alertBox);
         if (currentapiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
             TextView messageview = (TextView)alertBox.findViewById(android.R.id.message);
-            messageview.setTextDirection(android.view.View.TEXT_DIRECTION_LOCALE);
+            if(messageview != null){
+              messageview.setTextDirection(android.view.View.TEXT_DIRECTION_LOCALE);
+            }
         }
     }
 }
