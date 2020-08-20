@@ -37,11 +37,13 @@ interface Notification {
      *                                   or when the dialog is dismissed without a button press (0).
      * @param title             Dialog title, defaults to Confirm.
      * @param buttonLabels      Array of strings specifying button labels, defaults to [OK,Cancel].
+     * @param cancelable        Flag to disable dismiss alert on outside touch
      */
     confirm(message: string,
         confirmCallback: (choice: number) => void,
         title?: string,
-        buttonLabels?: string[]): void;
+        buttonLabels?: string[],
+        cancelable?: boolean): void;
     /**
      * Displays a native dialog box that is more customizable than the browser's prompt function.
      * @param message           Dialog message.
