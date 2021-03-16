@@ -53,7 +53,8 @@ module.exports = {
      * @param {Array} buttonLabels          Array of the labels of the buttons (default: ['OK', 'Cancel'])
      * @param {Boolean} cancelable          Flag to disable dismiss alert on outside touch
      */
-    confirm: function (message, resultCallback, title, buttonLabels, cancelable = true) {
+    confirm: function (message, resultCallback, title, buttonLabels, cancelable) {
+        if (!cancelable) { cancelable = true; }
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Confirm');
         var _buttonLabels = (buttonLabels || ['OK', 'Cancel']);
