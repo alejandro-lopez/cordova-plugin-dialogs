@@ -167,6 +167,7 @@ public class Notification extends CordovaPlugin {
      * @param title             The title of the alert
      * @param buttonLabel       The label of the button
      * @param callbackContext   The callback context
+     * @param theme             The theme to use
      */
     public synchronized void alert(final String message, final String title, final String buttonLabel, final String theme, final CallbackContext callbackContext) {
     	final CordovaInterface cordova = this.cordova;
@@ -209,6 +210,7 @@ public class Notification extends CordovaPlugin {
      * @param buttonLabels      A comma separated list of button labels (Up to 3 buttons)
      * @param cancelable        Cancelable disable dismiss alert on outside touch
      * @param callbackContext   The callback context.
+     * @param theme             The theme to use
      */
     public synchronized void confirm(final String message, final String title, final JSONArray buttonLabels, final boolean cancelable, final String theme, final CallbackContext callbackContext) {
     	final CordovaInterface cordova = this.cordova;
@@ -289,6 +291,7 @@ public class Notification extends CordovaPlugin {
      * @param title             The title of the dialog
      * @param buttonLabels      A comma separated list of button labels (Up to 3 buttons)
      * @param callbackContext   The callback context.
+     * @param theme             The theme to use
      */
     public synchronized void prompt(final String message, final String title, final JSONArray buttonLabels, final String defaultText, final String theme, final CallbackContext callbackContext) {
 
