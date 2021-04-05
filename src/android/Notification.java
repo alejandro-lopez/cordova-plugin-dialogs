@@ -517,7 +517,7 @@ public class Notification extends CordovaPlugin {
     private AlertDialog.Builder createDialog(CordovaInterface cordova, String theme) {
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         int _theme = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
-        if(theme == "dark") {
+        if(theme.equals("dark")) {
               _theme = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
         }
         if (currentapiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB) {
