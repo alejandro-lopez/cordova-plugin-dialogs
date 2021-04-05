@@ -36,11 +36,12 @@ module.exports = {
      * @param {String} title                Title of the alert dialog (default: Alert)
      * @param {String} buttonLabel          Label of the close button (default: OK)
      */
-    alert: function (message, completeCallback, title, buttonLabel) {
+    alert: function (message, completeCallback, title, buttonLabel, theme) {
+        var _theme = (typeof theme != "undefined" ? theme : "light");
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Alert');
         var _buttonLabel = (buttonLabel && typeof buttonLabel === 'string' ? buttonLabel : 'OK');
-        exec(completeCallback, null, 'Notification', 'alert', [_message, _title, _buttonLabel]);
+        exec(completeCallback, null, 'Notification', 'alert', [_message, _title, _buttonLabel, _theme]);
     },
 
     /**
@@ -53,7 +54,8 @@ module.exports = {
      * @param {Array} buttonLabels          Array of the labels of the buttons (default: ['OK', 'Cancel'])
      * @param {Boolean} cancelable          Flag to disable dismiss alert on outside touch
      */
-    confirm: function (message, resultCallback, title, buttonLabels, cancelable) {
+    confirm: function (message, resultCallback, title, buttonLabels, cancelable, theme) {
+        var _theme = (typeof theme != "undefined" ? theme : "light");
         if (!cancelable) { cancelable = true; }
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Confirm');
@@ -67,7 +69,7 @@ module.exports = {
 
         _buttonLabels = convertButtonLabels(_buttonLabels);
 
-        exec(resultCallback, null, 'Notification', 'confirm', [_message, _title, _buttonLabels, _cancelable]);
+        exec(resultCallback, null, 'Notification', 'confirm', [_message, _title, _buttonLabels, _cancelable, _theme]);
     },
 
     /**
@@ -82,7 +84,8 @@ module.exports = {
      * @param {Array} buttonLabels          Array of strings for the button labels (default: ["OK","Cancel"])
      * @param {String} defaultText          Textbox input value (default: empty string)
      */
-    prompt: function (message, resultCallback, title, buttonLabels, defaultText) {
+    prompt: function (message, resultCallback, title, buttonLabels, defaultText, theme) {
+        var _theme = (typeof theme != "undefined" ? theme : "light");
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Prompt');
         var _buttonLabels = (buttonLabels || ['OK', 'Cancel']);
@@ -95,7 +98,7 @@ module.exports = {
         _buttonLabels = convertButtonLabels(_buttonLabels);
 
         var _defaultText = (defaultText || '');
-        exec(resultCallback, null, 'Notification', 'prompt', [_message, _title, _buttonLabels, _defaultText]);
+        exec(resultCallback, null, 'Notification', 'prompt', [_message, _title, _buttonLabels, _defaultText, _theme]);
     },
 
     /**
