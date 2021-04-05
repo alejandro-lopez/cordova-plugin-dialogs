@@ -86,7 +86,7 @@ public class Notification extends CordovaPlugin {
             this.beep(args.getLong(0));
         }
         else if (action.equals("alert")) {
-            this.alert(args.getString(0), args.getString(1), args.getString(2), callbackContext);
+            this.alert(args.getString(0), args.getString(1), args.getString(2), args.getBoolean(3), callbackContext);
             return true;
         }
         else if (action.equals("confirm")) {
