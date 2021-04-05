@@ -37,7 +37,7 @@ module.exports = {
      * @param {String} buttonLabel          Label of the close button (default: OK)
      */
     alert: function (message, completeCallback, title, buttonLabel, theme) {
-        var _theme = (typeof theme != "undefined" ? theme : "light");
+        var _theme = (typeof theme === 'string' ? theme : "light");
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Alert');
         var _buttonLabel = (buttonLabel && typeof buttonLabel === 'string' ? buttonLabel : 'OK');
@@ -55,7 +55,7 @@ module.exports = {
      * @param {Boolean} cancelable          Flag to disable dismiss alert on outside touch
      */
     confirm: function (message, resultCallback, title, buttonLabels, cancelable, theme) {
-        var _theme = (typeof theme != "undefined" ? theme : "light");
+        var _theme = (typeof theme === 'string' ? theme : "light");
         if (!cancelable) { cancelable = true; }
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Confirm');
@@ -85,7 +85,7 @@ module.exports = {
      * @param {String} defaultText          Textbox input value (default: empty string)
      */
     prompt: function (message, resultCallback, title, buttonLabels, defaultText, theme) {
-        var _theme = (typeof theme != "undefined" ? theme : "light");
+        var _theme = (typeof theme === 'string' ? theme : "light");
         var _message = (typeof message === 'string' ? message : JSON.stringify(message));
         var _title = (typeof title === 'string' ? title : 'Prompt');
         var _buttonLabels = (buttonLabels || ['OK', 'Cancel']);
