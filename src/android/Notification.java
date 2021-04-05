@@ -86,15 +86,15 @@ public class Notification extends CordovaPlugin {
             this.beep(args.getLong(0));
         }
         else if (action.equals("alert")) {
-            this.alert(args.getString(0), args.getString(1), args.getString(2), args.getBoolean(3), callbackContext);
+            this.alert(args.getString(0), args.getString(1), args.getString(2), args.getString(3), callbackContext);
             return true;
         }
         else if (action.equals("confirm")) {
-            this.confirm(args.getString(0), args.getString(1), args.getJSONArray(2), args.getBoolean(3), callbackContext);
+            this.confirm(args.getString(0), args.getString(1), args.getJSONArray(2), args.getBoolean(3), args.getString(4), callbackContext);
             return true;
         }
         else if (action.equals("prompt")) {
-            this.prompt(args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), callbackContext);
+            this.prompt(args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), args.getString(4), callbackContext);
             return true;
         }
         else if (action.equals("activityStart")) {
