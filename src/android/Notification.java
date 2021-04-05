@@ -168,13 +168,13 @@ public class Notification extends CordovaPlugin {
      * @param buttonLabel       The label of the button
      * @param callbackContext   The callback context
      */
-    public synchronized void alert(final String message, final String title, final String buttonLabel, final CallbackContext callbackContext) {
+    public synchronized void alert(final String message, final String title, final String buttonLabel, final String theme, final CallbackContext callbackContext) {
     	final CordovaInterface cordova = this.cordova;
 
         Runnable runnable = new Runnable() {
             public void run() {
 
-                AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+                AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
@@ -210,12 +210,12 @@ public class Notification extends CordovaPlugin {
      * @param cancelable        Cancelable disable dismiss alert on outside touch
      * @param callbackContext   The callback context.
      */
-    public synchronized void confirm(final String message, final String title, final JSONArray buttonLabels, final boolean cancelable, final CallbackContext callbackContext) {
+    public synchronized void confirm(final String message, final String title, final JSONArray buttonLabels, final boolean cancelable, final String theme, final CallbackContext callbackContext) {
     	final CordovaInterface cordova = this.cordova;
 
         Runnable runnable = new Runnable() {
             public void run() {
-                AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+                AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
                 dlg.setCancelable(cancelable);
@@ -290,7 +290,7 @@ public class Notification extends CordovaPlugin {
      * @param buttonLabels      A comma separated list of button labels (Up to 3 buttons)
      * @param callbackContext   The callback context.
      */
-    public synchronized void prompt(final String message, final String title, final JSONArray buttonLabels, final String defaultText, final CallbackContext callbackContext) {
+    public synchronized void prompt(final String message, final String title, final JSONArray buttonLabels, final String defaultText, final String theme, final CallbackContext callbackContext) {
 
         final CordovaInterface cordova = this.cordova;
 
@@ -305,7 +305,7 @@ public class Notification extends CordovaPlugin {
                 int promptInputTextColor = resources.getColor(android.R.color.primary_text_light);
                 promptInput.setTextColor(promptInputTextColor);
                 promptInput.setText(defaultText);
-                AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+                AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
@@ -511,10 +511,14 @@ public class Notification extends CordovaPlugin {
     }
 
     @SuppressLint("NewApi")
-    private AlertDialog.Builder createDialog(CordovaInterface cordova) {
+    private AlertDialog.Builder createDialog(CordovaInterface cordova, String theme) {
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        int _theme = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
+        if(theme == "dark") {
+              _theme = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+        }
         if (currentapiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB) {
-            return new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+            return new AlertDialog.Builder(cordova.getActivity(), _theme);
         } else {
             return new AlertDialog.Builder(cordova.getActivity());
         }
