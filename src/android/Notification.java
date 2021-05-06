@@ -38,6 +38,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.core.text.HtmlCompat;
 
 import java.util.ArrayList;
 
@@ -176,7 +177,7 @@ public class Notification extends CordovaPlugin {
             public void run() {
 
                 AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                dlg.setMessage(message);
+                dlg.setMessage(HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY));
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
                 dlg.setPositiveButton(buttonLabel,
@@ -218,7 +219,7 @@ public class Notification extends CordovaPlugin {
         Runnable runnable = new Runnable() {
             public void run() {
                 AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                dlg.setMessage(message);
+                dlg.setMessage(HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY));
                 dlg.setTitle(title);
                 dlg.setCancelable(cancelable);
 
