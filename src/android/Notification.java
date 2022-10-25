@@ -312,10 +312,10 @@ public class Notification extends CordovaPlugin {
                 Resources resources = cordova.getActivity().getResources();
                 if(theme.equals("dark")) {
                    promptInput.setTextColor(Color.parseColor("#D9D9D9"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity().getApplicationContext(), Color.parseColor("#D9D9D9")), PorterDuff.Mode.SRC_ATOP);
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), Color.WHITE), PorterDuff.Mode.SRC_ATOP);
                 }else{
                    promptInput.setTextColor(Color.parseColor("#333333"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity().getApplicationContext(), Color.parseColor("#333333")), PorterDuff.Mode.SRC_ATOP);
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), Color.BLACK), PorterDuff.Mode.SRC_ATOP);
                 }
                 
                 promptInput.setText(defaultText);
