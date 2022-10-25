@@ -34,12 +34,14 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.core.text.HtmlCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -309,10 +311,10 @@ public class Notification extends CordovaPlugin {
                 Resources resources = cordova.getActivity().getResources();
                 if(theme.equals("dark")) {
                    promptInput.setTextColor(Color.parseColor("#D9D9D9"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(context, Color.parseColor("#D9D9D9")), PorterDuff.Mode.SRC_ATOP);
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity().getBaseContext(), Color.parseColor("#D9D9D9")), PorterDuff.Mode.SRC_ATOP);
                 }else{
                    promptInput.setTextColor(Color.parseColor("#333333"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(context, Color.parseColor("#333333")), PorterDuff.Mode.SRC_ATOP);
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity().getBaseContext(), Color.parseColor("#333333")), PorterDuff.Mode.SRC_ATOP);
                 }
                 
                 promptInput.setText(defaultText);
