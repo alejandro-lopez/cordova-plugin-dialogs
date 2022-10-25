@@ -309,11 +309,14 @@ public class Notification extends CordovaPlugin {
                 Resources resources = cordova.getActivity().getResources();
                 if(theme.equals("dark")) {
                    promptInput.setTextColor(Color.parseColor("#D9D9D9"));
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(context, Color.parseColor("#D9D9D9")), PorterDuff.Mode.SRC_ATOP);
                 }else{
                    promptInput.setTextColor(Color.parseColor("#333333"));
+                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(context, Color.parseColor("#333333")), PorterDuff.Mode.SRC_ATOP);
                 }
                 
                 promptInput.setText(defaultText);
+               
                 AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY));
                 dlg.setTitle(title);
