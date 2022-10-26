@@ -404,6 +404,7 @@ public class Notification extends CordovaPlugin {
 
                 changeTextDirection(dlg);
                 promptInput.requestFocus();
+                this.showKeyboardForField(cordova.getActivity(), promptInput);
             };
         };
         this.cordova.getActivity().runOnUiThread(runnable);
@@ -562,5 +563,24 @@ public class Notification extends CordovaPlugin {
               messageview.setTextDirection(android.view.View.TEXT_DIRECTION_LOCALE);
             }
         }
+    }
+    /**
+     * Used to show the on-screen keyboard for the given text field as if the user
+     * had tapped the field themselves.
+     *
+     * @param context Used to obtain a reference to the INPUT_METHOD_SERVICE.
+     * @param textField The field we are showing the keyboard for.
+     */
+    private void showKeyboardForField(final Context context, final EditText textField) {
+
+        textField.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                InputMethodManager inputManager = (InputMethodManager)
+                        context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.showSoftInput(textField, 0);
+            }
+        }, 200);
     }
 }
