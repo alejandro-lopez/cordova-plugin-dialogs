@@ -406,7 +406,7 @@ public class Notification extends CordovaPlugin {
 
                 changeTextDirection(dlg);
                 promptInput.requestFocus();
-                this.showKeyboardForField(cordova.getActivity(), promptInput);
+                showKeyboardForField(cordova.getActivity(), promptInput);
             };
         };
         this.cordova.getActivity().runOnUiThread(runnable);
@@ -573,6 +573,7 @@ public class Notification extends CordovaPlugin {
      * @param context Used to obtain a reference to the INPUT_METHOD_SERVICE.
      * @param textField The field we are showing the keyboard for.
      */
+    @SuppressLint("NewApi")
     private void showKeyboardForField(final Context context, final EditText textField) {
 
         textField.postDelayed(new Runnable() {
