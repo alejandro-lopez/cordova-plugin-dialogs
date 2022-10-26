@@ -312,10 +312,10 @@ public class Notification extends CordovaPlugin {
                 Resources resources = cordova.getActivity().getResources();
                 if(theme.equals("dark")) {
                    promptInput.setTextColor(Color.parseColor("#D9D9D9"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+                   //promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.white), PorterDuff.Mode.SRC_ATOP);
                 }else{
                    promptInput.setTextColor(Color.parseColor("#333333"));
-                   promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.black), PorterDuff.Mode.SRC_ATOP);
+                   //promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.black), PorterDuff.Mode.SRC_ATOP);
                 }
                 
                 promptInput.setText(defaultText);
@@ -403,6 +403,7 @@ public class Notification extends CordovaPlugin {
                 });
 
                 changeTextDirection(dlg);
+                promptInput.requestFocus();
             };
         };
         this.cordova.getActivity().runOnUiThread(runnable);
