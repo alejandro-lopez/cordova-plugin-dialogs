@@ -323,7 +323,7 @@ public class Notification extends CordovaPlugin {
                 promptInput.setText(defaultText);
                 //LinearLayout linearLayout = findViewById(R.id.linearLayout);
                 LinearLayout.LayoutParams layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONENT);
-                layoutParams.setMargins(40, 0, 40, 0);
+                layoutParams.setMargins(promptInput,40, 0, 40, 0);
                 promptInput.setLayoutParams(layoutParams);
                
                 AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
