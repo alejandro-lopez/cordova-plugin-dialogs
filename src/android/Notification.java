@@ -313,10 +313,10 @@ public class Notification extends CordovaPlugin {
                 android.R.color.primary_text_light will make text visible on all versions. */
                 Resources resources = cordova.getActivity().getResources();
                 if(theme.equals("dark")) {
-                   promptInput.setTextColor(Color.parseColor("#D9D9D9"));
+                   promptInput.setTextColor(Color.parseColor("#333333"));
                    //promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.white), PorterDuff.Mode.SRC_ATOP);
                 }else{
-                   promptInput.setTextColor(Color.parseColor("#333333"));
+                   promptInput.setTextColor(Color.parseColor("#D9D9D9"));
                    //promptInput.getBackground().mutate().setColorFilter(ContextCompat.getColor(cordova.getActivity(), android.R.color.black), PorterDuff.Mode.SRC_ATOP);
                 }
                 
