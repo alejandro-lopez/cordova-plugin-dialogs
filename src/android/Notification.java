@@ -324,7 +324,7 @@ public class Notification extends CordovaPlugin {
                 
                 promptInput.setText(defaultText);
                 //LinearLayout linearLayout = findViewById(R.id.linearLayout);
-                LayoutParams params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 params.setMargins(40, 0, 40, 0);
                 promptInput.setLayoutParams(params);
                
