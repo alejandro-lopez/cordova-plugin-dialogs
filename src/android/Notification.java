@@ -323,10 +323,10 @@ public class Notification extends CordovaPlugin {
                 }
                 
                 promptInput.setText(defaultText);
-               /*
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+               
+               LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(40, 0, 40, 0);
-                promptInput.setLayoutParams(params);*/
+                promptInput.setLayoutParams(params);
                
                 AlertDialog.Builder dlg = createDialog(cordova, theme); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY));
